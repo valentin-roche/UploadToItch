@@ -18,3 +18,6 @@ PATH=$PATH:~/opt/bin
 butler login $BUTLER_API_KEY
 
 echo "Upload artifact $BUILD_NAME:$VERSION_NUMBER  from $BUILD_PATH"
+
+# Wrap it all up with logging out
+butler logout
