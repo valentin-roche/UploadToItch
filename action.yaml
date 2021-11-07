@@ -1,0 +1,22 @@
+name: Build WebGL version of the game
+inputs:
+  - version-number:
+    description: 'SemVer version number'
+    required: true
+    default: '0.0.0'
+  - name:
+    description: 'The build name'
+    required: true
+    default: 'unknown name'
+  - build-path:
+    description: "The artifact to upload"
+    required: true
+  
+runs:  
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+    VERSION_NUMBER: ${{ inputs.version-number }}
+    BUILD_NAME: ${{ inputs.name }}
+    BUILD_PATH: ${{ inputs.build-path }}
