@@ -1,4 +1,9 @@
-name: Build WebGL version of the game
+name: Upload a build artifact to itch.io
+description: 'Uploads a build artifact to itch.io using the given api key and parameters.'
+branding:
+    icon: upload
+    color: purple
+
 inputs:
   - version-number:
     description: 'SemVer version number'
