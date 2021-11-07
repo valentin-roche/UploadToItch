@@ -1,5 +1,5 @@
 name: Upload a build artifact to itch.io
-description: 'Uploads a build artifact to itch.io using the given api key and parameters.'
+description: 'Uploads a build artifact to itch.io with butler using the given api key and parameters.'
 branding:
     icon: upload
     color: purple
@@ -16,12 +16,15 @@ inputs:
   - build-path:
     description: "The artifact to upload"
     required: true
+  - build-path:
+    description: "The butler API Key to log in with"
+    required: true
   
 runs:  
   using: 'docker'
   image: 'Dockerfile'
   env:
-    BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+    BUTLER_API_KEY: ${{ inputs.butler-api-key }}
     VERSION_NUMBER: ${{ inputs.version-number }}
     BUILD_NAME: ${{ inputs.name }}
     BUILD_PATH: ${{ inputs.build-path }}
